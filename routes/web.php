@@ -1,6 +1,8 @@
 <?php
 
+use App\Http\Controllers\ArticleController;
 use App\Http\Controllers\ProfileController;
+use App\Http\Controllers\TagController;
 use Illuminate\Support\Facades\Route;
 
 /*
@@ -27,5 +29,17 @@ Route::middleware('auth')->group(function () {
     Route::patch('/profile', [ProfileController::class, 'update'])->name('profile.update');
     Route::delete('/profile', [ProfileController::class, 'destroy'])->name('profile.destroy');
 });
+
+Route::resource('articles', ArticleController::class)
+    ->only(['index', 'store', 'edit', 'update', 'show'])
+    ->middleware(['auth', 'verified']);
+
+Route::resource('commentaries', ArticleController::class)
+    ->only(['store', 'edit', 'update'])
+    ->middleware(['auth', 'verified']);
+
+Route::resource('tags', TagController::class)
+    ->only(['index', 'store'])
+    ->middleware(['auth', 'verified']);
 
 require __DIR__.'/auth.php';

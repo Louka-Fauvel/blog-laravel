@@ -13,6 +13,11 @@ return new class extends Migration
     {
         Schema::create('articles', function (Blueprint $table) {
             $table->id();
+            $table->string('title');
+            $table->longText('content');
+            $table->boolean('draft')->default(false);
+            $table->boolean('is_validated')->default(false);
+            $table->foreignId('user_id');
             $table->timestamps();
         });
     }
