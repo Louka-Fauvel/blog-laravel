@@ -35,10 +35,10 @@ class CommentaryPolicy
     /**
      * Determine whether the user can update the model.
      */
-    /*public function update(User $user, Commentary $commentary): bool
+    public function update(User $user, Commentary $commentary): bool
     {
-        //
-    }*/
+        return $commentary->user()->is($user);
+    }
 
     /**
      * Determine whether the user can delete the model.

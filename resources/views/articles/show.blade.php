@@ -74,7 +74,7 @@
                                 @endunless
                             </div>
 
-                            @if ($article->user->is(auth()->user()))
+                            @if ($commentarie->user->is(auth()->user()))
                                 <x-dropdown>
                                     <x-slot name="trigger">
                                         <button>
