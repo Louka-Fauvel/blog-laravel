@@ -51,7 +51,7 @@ class ArticleController extends Controller
 
     public function show(Article $article): View {
 
-        return view('articles.show', ['article' => $article, 'commentaries' => $article->commentaries()]);
+        return view('articles.show', ['article' => $article, 'commentaries' => $article->commentaries]);
     }
 
 }

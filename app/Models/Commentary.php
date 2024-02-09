@@ -19,6 +19,7 @@ class Commentary extends Model
         'message',
         'date_created',
         'date_updated',
+        'article_id',
     ];
 
     public function user(): BelongsTo {

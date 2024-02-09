@@ -1,6 +1,7 @@
 <?php
 
 use App\Http\Controllers\ArticleController;
+use App\Http\Controllers\CommentaryController;
 use App\Http\Controllers\ProfileController;
 use App\Http\Controllers\TagController;
 use Illuminate\Support\Facades\Route;
@@ -34,10 +35,14 @@ Route::resource('articles', ArticleController::class)
     ->only(['index', 'store', 'edit', 'update', 'show'])
     ->middleware(['auth', 'verified']);
 
-Route::resource('commentaries', ArticleController::class)
+Route::resource('commentaries', CommentaryController::class)
     ->only(['store', 'edit', 'update'])
     ->middleware(['auth', 'verified']);
 
+
+
+
+    
 Route::resource('tags', TagController::class)
     ->only(['index', 'store'])
     ->middleware(['auth', 'verified']);
